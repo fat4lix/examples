@@ -39,6 +39,9 @@ func (h *Hello) Render() string {
     `
 }
 
+// OnInputChange is the handler called when an onchange event occurs.
+// In the HTML markup, a Go component method is target by prefixing the event with "_".
+// eg _onchange.
 func (h *Hello) OnInputChange(arg app.ChangeArg) {
 	h.Greeting = arg.Value // Changing the greeting.
 	app.Render(h)          // Tells the app to update the rendering of the component.
