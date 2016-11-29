@@ -8,7 +8,6 @@ import (
 // AppMainMenu implements app.Componer interface.
 type AppMainMenu struct {
 	CustomTitle string
-	Sep         bool
 	Disabled    bool
 }
 
@@ -20,12 +19,13 @@ func (m *AppMainMenu) Render() string {
 	return `
 <menu>
     <menu label="app">
-        <menuitem label="Quit" shortcut="meta+q" selector="terminate:" separator="{{.Sep}}" />
         <menuitem label="{{if .CustomTitle}}{{.CustomTitle}}{{else}}Custom item{{end}}" 
                   shortcut="ctrl+c" 
                   _onclick="OnCustomMenuClick" 
                   icon="star.png"
+                  separator="true"
                   disabled="{{.Disabled}}" />
+        <menuitem label="Quit" shortcut="meta+q" selector="terminate:" />        
     </menu>
     <WindowMenu />
 </menu>
