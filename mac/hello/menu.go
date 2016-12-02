@@ -40,7 +40,6 @@ func (m *AppMainMenu) OnCustomMenuClick() {
 // WindowMenu implements app.Componer interface.
 // It's another component which will be nested inside the AppMenu component.
 type WindowMenu struct {
-	Placeholder bool
 }
 
 func (m *WindowMenu) Render() string {
