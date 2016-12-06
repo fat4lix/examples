@@ -14,7 +14,7 @@ type Hello struct {
 // Can be templated following rules from https://golang.org/pkg/text/template.
 func (h *Hello) Render() string {
 	return `
-<div class="WindowLayout">    
+<div class="WindowLayout" _oncontextmenu="OnContextMenu">    
     <div class="HelloBox">
         <h1>
             Hello,
@@ -42,6 +42,13 @@ func (h *Hello) Render() string {
 func (h *Hello) OnInputChange(arg app.ChangeArg) {
 	h.Greeting = arg.Value // Changing the greeting.
 	app.Render(h)          // Tells the app to update the rendering of the component.
+}
+
+// OnContextMenu is the handler called when an oncontextmenu event occurs.
+// Targeted by _oncontextmenu.
+func (h *Hello) OnContextMenu() {
+	ctxmenu := app.NewContextMenu()
+	ctxmenu.Mount(&AppMainMenu{})
 }
 
 func init() {
