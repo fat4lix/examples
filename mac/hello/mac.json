@@ -1,0 +1,10 @@
+{
+    "name": "hello",
+    "version": "1.0.0.0",
+    "icon": "logo.png",
+    "id": "maxence.hello",
+    "os-min-version": "10.12",
+    "role": "None",
+    "sandbox": true,
+    "supported-files": null
+}
