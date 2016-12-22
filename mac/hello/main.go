@@ -11,9 +11,13 @@ var (
 
 func main() {
 	app.OnLaunch = func() {
-		appMenu := &AppMainMenu{} // Creates the AppMainMenu component.
-		app.Menu().Mount(appMenu) // Mounts the AppMainMenu component into the application menu context.
-		win = newMainWindow()
+		appMenu := &AppMainMenu{}    // Creates the AppMainMenu component.
+		app.MenuBar().Mount(appMenu) // Mounts the AppMainMenu component into the application menu bar.
+
+		appMenuDock := &AppMainMenu{} // Creates another AppMainMenu.
+		app.Dock().Mount(appMenuDock)
+
+		win = newMainWindow() // Create the main window.
 	}
 
 	app.OnReopen = func(hasVisibleWindow bool) {
