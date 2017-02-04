@@ -21,7 +21,7 @@ func (m *AppMainMenu) Render() string {
     <menu label="app">
         <menuitem label="{{if .CustomTitle}}{{.CustomTitle}}{{else}}Custom item{{end}}" 
                   shortcut="ctrl+c" 
-                  _onclick="OnCustomMenuClick" 
+                  onclick="OnCustomMenuClick" 
                   icon="star.png"
                   separator="true"
                   disabled="{{.Disabled}}" />
