@@ -30,6 +30,8 @@ func (h *Hello) Render() string {
                value="{{html .Greeting}}"
                placeholder="What is your name?"
                autofocus="true"
+               onkeydown="Greeting"
+               onkeyup="Greeting"
                onchange="OnInputChange" />
     </div>
 </div>
@@ -38,8 +40,7 @@ func (h *Hello) Render() string {
 
 // OnInputChange is the handler called when an onchange event occurs.
 func (h *Hello) OnInputChange(arg app.ChangeArg) {
-	h.Greeting = arg.Value // Changing the greeting.
-	app.Render(h)          // Tells the app to update the rendering of the component.
+	app.Render(h) // Tells the app to update the rendering of the component.
 }
 
 // OnContextMenu is the handler called when an oncontextmenu event occurs.
