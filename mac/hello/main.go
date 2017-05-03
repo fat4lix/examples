@@ -12,15 +12,19 @@ var (
 func main() {
 	app.OnLaunch = func() {
 		appMenu := &AppMainMenu{}    // Creates the AppMainMenu component.
-		app.MenuBar().Mount(appMenu) // Mounts the AppMainMenu component into the application menu bar.
+		if menuBar, ok := app.MenuBar(); ok { // Mounts the AppMainMenu component into the application menu bar.
+			menuBar.Mount(appMenu)
+		}
 
 		appMenuDock := &AppMainMenu{} // Creates another AppMainMenu.
-		app.Dock().Mount(appMenuDock)
+		if dock, ok := app.Dock(); ok {
+			dock.Mount(appMenuDock)
+		}
 
 		win = newMainWindow() // Create the main window.
 	}
 
-	app.OnReopen = func(hasVisibleWindow bool) {
+	app.OnReopen = func() {
 		if win != nil {
 			return
 		}
