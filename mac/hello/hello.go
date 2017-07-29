@@ -40,6 +40,7 @@ func (h *Hello) Render() string {
 
 // OnInputChange is the handler called when an onchange event occurs.
 func (h *Hello) OnInputChange(arg app.ChangeArg) {
+	h.Greeting = arg.Value
 	app.Render(h) // Tells the app to update the rendering of the component.
 }
 
